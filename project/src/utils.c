@@ -14,9 +14,13 @@ size_t timer_from(int from) {
             return counter;
 }
 
-// TODO(Spitsina Anna): Implement `power of` function
-/*
+
+
 int custom_pow(int base, int power) {
-    return 0;
+    int result = 1;
+    for (int i=1; i <= power; ++i) {
+        result = result*base;
+    }
+    return result;
 }
-*/
+
