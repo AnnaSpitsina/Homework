@@ -1,12 +1,12 @@
 #ifndef PROJECT_INCLUDE_UTILS_H_
 #define PROJECT_INCLUDE_UTILS_H_
-#include <stdio.h>   // для size_t
-#include <stdlib.h>   // для atoi
-#include <stdbool.h>   // для bool
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-size_t timer_from(int from);
+size_t timer_from(int limit);
 int custom_pow(int base, int power);
-int prostoe(int num);
-void rek(int gran);
+int primenumber(int num);
+void recursion(int border);
 
 #endif  // PROJECT_INCLUDE_UTILS_H_

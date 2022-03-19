@@ -4,9 +4,10 @@ HDRS_DIR = project/include
 # XXX: Don't forget backslash at the end of any line except the last one
 SRCS = \
        project/src/main.c \
-       project/src/utils.c \
-	   project/src/keysthree.c \
-	   project/src/rekursia.c 
+       project/src/timer_from.c \
+	   project/src/custom_pow.c \
+	   project/src/primenumber.c \
+	   project/src/recursion.c 
 
 .PHONY: all build rebuild check test clean
 

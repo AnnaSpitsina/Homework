@@ -8,22 +8,6 @@
 #define TST_MOD_IMPL    3
 #define TST_MOD_REK     4
 
-
-/* NOTE(stitaevskiy):
- * We use `atoi` function just for simplification and code reducing.
- * This function doesn't report conversation errors.
- * For safety program we recommend using `strtol` and its analogs.
- * (See `man atoi` and `man strtol` for more info).
- *
- * const char str_num[] = "1234";
- * char* end = NULL;
- * int val = (int) strtol(str_num, &end, 0);
- * if (end != '\0') {
- *     //ERROR
- * }
- *
- * */
-
 int main(int argc, const char** argv) {
     if (argc < 3) {
         return ERR_ARGS_COUNT;
@@ -35,33 +19,32 @@ int main(int argc, const char** argv) {
 
     switch (Test_case) {
         case TST_FOO_FIX: {
-            int to = atoi(data);
-            size_t ticks_count = timer_from(to);
+            int limit = atoi(data);
+            size_t ticks_count = timer_from(limit);
             printf("%zu\n", ticks_count);
             break;
         }
         case TST_FOO_IMPL: {
             if (argc == 4) {
-                 int base = atoi(data);
+                int base = atoi(data);
                 int pow =  atoi(argv[3]);
                 int res = custom_pow(base, pow);
 
-                 printf("%i\n", res);
-            } else {
+                printf("%i\n", res);}
+            else {
                 return ERR_ARGS_COUNT;
             }
             break;
         }
         case TST_MOD_IMPL: {
             int num = atoi(data);
-            int itog = prostoe(num);
-            printf("%i\n", itog);
+            int total = primenumber(num);
+            printf("%i\n", total);
             break;
         }
         case TST_MOD_REK: {
-            int gran = atoi(data);
-            printf("1");
-            rek(gran);
+            int border = atoi(data);
+            recursion(border);
             break;
         }
         default: {
