@@ -13,11 +13,11 @@ int main(int argc, const char** argv) {
         return ERR_ARGS_COUNT;
     }
 
-    int Test_case = atoi(argv[1]);
+    int test_case = atoi(argv[1]);
     const char* data;
     data = argv[2];
 
-    switch (Test_case) {
+    switch (test_case) {
         case TST_FOO_FIX: {
             int limit = atoi(data);
             size_t ticks_count = timer_from(limit);
@@ -27,22 +27,22 @@ int main(int argc, const char** argv) {
         case TST_FOO_IMPL: {
             if (argc == 4) {
                 int base = atoi(data);
-                int pow =  atoi(argv[3]);
-                int res = custom_pow(base, pow);
-                printf("%i\n", res);}
-            else
-                {return ERR_ARGS_COUNT;}
+                int power =  atoi(argv[3]);
+                int res = custompower(base, power);
+                printf("%i\n", res);
+            } else {
+                return ERR_ARGS_COUNT;}
             break;
         }
         case TST_MOD_IMPL: {
-            int num = atoi(data);
-            int total = primenumber(num);
-            printf("%i\n", total);
+            int number = atoi(data);
+            int result = primenumber(number);
+            printf("%i\n", result);
             break;
         }
         case TST_MOD_REK: {
             int border = atoi(data);
-            recursion(border);
+            recursive_output_of_numbers(border);
             break;
         }
         default: {

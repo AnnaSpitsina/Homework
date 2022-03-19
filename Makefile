@@ -3,11 +3,11 @@ HDRS_DIR = project/include
 
 # XXX: Don't forget backslash at the end of any line except the last one
 SRCS = \
-       project/src/main.c \
-       project/src/timer_from.c \
-	   project/src/custom_pow.c \
-	   project/src/primenumber.c \
-	   project/src/recursion.c 
+		project/src/main.c \
+		project/src/timer_from.c \
+		project/src/custompower.c \
+		project/src/primenumber.c \
+		project/src/recursive_output_of_numbers.c 
 
 .PHONY: all build rebuild check test clean
 

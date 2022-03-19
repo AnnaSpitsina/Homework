@@ -2,14 +2,14 @@
 
 size_t timer_from(int limit) {
     size_t counter = 0;
-        if (limit <0) {
-            return counter;}
-        else
-            {for (int i = limit; i > 0; --i) {
-            ++counter;
-            printf("%d ", i);
+        if (limit < 0) {
+            return counter;
+        } else {
+            for (int i = limit; i > 0; --i) {
+                ++counter;
+                printf("%d ", i);
             }
-                printf("0\n");
-                return ++counter;}
+        printf("0\n");
+        return ++counter;
+        }
 }
-
