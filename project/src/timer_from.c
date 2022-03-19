@@ -1,11 +1,11 @@
 #include "utils.h"
 
-size_t timer_from(int from) {
+size_t timer_from(int limit) {
     size_t counter = 0;
-        if (from <0) {
+        if (limit <0) {
             return counter;}
         else
-            {for (int i = from; i>0; --i) {
+            {for (int i = limit; i > 0; --i) {
             ++counter;
             printf("%d ", i);
             }

@@ -29,11 +29,9 @@ int main(int argc, const char** argv) {
                 int base = atoi(data);
                 int pow =  atoi(argv[3]);
                 int res = custom_pow(base, pow);
-
                 printf("%i\n", res);}
-            else {
-                return ERR_ARGS_COUNT;
-            }
+            else
+                {return ERR_ARGS_COUNT;}
             break;
         }
         case TST_MOD_IMPL: {
