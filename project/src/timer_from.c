@@ -9,7 +9,6 @@ size_t timer_from(int limit) {
                 ++counter;
                 printf("%d ", i);
             }
-        printf("0\n");
-        return ++counter;
-        }
+            printf("0\n");
+            return ++counter;}
 }
