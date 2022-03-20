@@ -6,56 +6,44 @@
 #define TST_FOO_FIX     1
 #define TST_FOO_IMPL    2
 #define TST_MOD_IMPL    3
-
-
-/* NOTE(stitaevskiy):
- * We use `atoi` function just for simplification and code reducing.
- * This function doesn't report conversation errors.
- * For safety program we recommend using `strtol` and its analogs.
- * (See `man atoi` and `man strtol` for more info).
- *
- * const char str_num[] = "1234";
- * char* end = NULL;
- * int val = (int) strtol(str_num, &end, 0);
- * if (end != '\0') {
- *     //ERROR
- * }
- *
- * */
+#define TST_MOD_REK     4
 
 int main(int argc, const char** argv) {
     if (argc < 3) {
         return ERR_ARGS_COUNT;
     }
 
-    int Test_case = atoi(argv[1]);
+    int test_case = atoi(argv[1]);
     const char* data;
     data = argv[2];
 
-    switch (Test_case) {
+    switch (test_case) {
         case TST_FOO_FIX: {
-            int to = atoi(data);
-            size_t ticks_count = timer_from(to);
-            printf("%d\n", ticks_count);
+            int limit = atoi(data);
+            size_t ticks_count = timer_from(limit);
+            printf("%zu\n", ticks_count);
             break;
         }
         case TST_FOO_IMPL: {
-            if (argc = 4) {
-                // int base = atoi(data);
-                // int pow =  atoi(argv[3]);
-                // int res = custom_pow(base, pow);    // TODO: Implement me
-
-                // printf("%i\n", res);
+            if (argc == 4) {
+                int base = atoi(data);
+                int power =  atoi(argv[3]);
+                int result = custom_power(base, power);
+                printf("%i\n", result);
             } else {
-                return ERR_ARGS_COUNT;
-            }
+                return ERR_ARGS_COUNT;}
+            break;
         }
         case TST_MOD_IMPL: {
-            // int num = atoi(data);
-
-            // TODO: Print to stdout `1` if `num` is prime number and `0` otherwise
-            // This function MUST be implemented in
-            // a separate C-module (not in `main` or `utils` module)
+            int number = atoi(data);
+            int result = is_prime_number(number);
+            printf("%i\n", result);
+            break;
+        }
+        case TST_MOD_REK: {
+            int border = atoi(data);
+            recursive_output_of_numbers(border);
+            break;
         }
         default: {
             return ERR_WRONG_FLG;

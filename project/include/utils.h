@@ -1,10 +1,14 @@
-#ifndef UTILS_H
-#define UTILS_H
+#ifndef PROJECT_INCLUDE_UTILS_H_
 
+#define PROJECT_INCLUDE_UTILS_H_
 
-size_t timer_from(unsigned char from);
-// TODO: Implement `power of` function
-// int custom_pow(int base, int power);
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-#endif //UTILS_H
+size_t timer_from(int limit);
+int custom_power(int base, int power);
+int is_prime_number(int number);
+void recursive_output_of_numbers(int border);
 
+#endif  // PROJECT_INCLUDE_UTILS_H_
