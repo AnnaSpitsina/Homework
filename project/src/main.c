@@ -28,15 +28,15 @@ int main(int argc, const char** argv) {
             if (argc == 4) {
                 int base = atoi(data);
                 int power =  atoi(argv[3]);
-                int res = custompower(base, power);
-                printf("%i\n", res);
+                int result = custom_power(base, power);
+                printf("%i\n", result);
             } else {
                 return ERR_ARGS_COUNT;}
             break;
         }
         case TST_MOD_IMPL: {
             int number = atoi(data);
-            int result = primenumber(number);
+            int result = is_prime_number(number);
             printf("%i\n", result);
             break;
         }
