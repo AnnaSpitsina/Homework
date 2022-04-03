@@ -2,8 +2,7 @@
 #define UTILS_H
 
 #include <stdio.h>
-
-#define filename "transaction.dat"
+#define FILENAME "transaction.dat"
 
 
 struct masterRecord {

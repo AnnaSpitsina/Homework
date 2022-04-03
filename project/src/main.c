@@ -2,12 +2,11 @@
 
 int main(void) {
   int choice = 0;
-
   FILE *Ptr, *Ptr_2, *blackrecord;
   Data client_data, transfer;
   printf("%s",
          "please enter action\n1 enter data client:\n2 enter data "
-         "transaction:\n3 update base\n");
+         "transaction:\n3 update base\n\n");
   while (scanf("%d", &choice) != -1) {
     switch (choice) {
       case 1:
@@ -20,7 +19,7 @@ int main(void) {
         }
         break;
       case 2:
-        Ptr = fopen(filename, "r+");
+        Ptr = fopen(FILENAME, "r+");
         if (Ptr == NULL) {
           puts("Not acess");
         } else {

@@ -1,15 +1,14 @@
 #include "utils.h"
 
 void FuncBlackRecord(FILE* ofPTR,
-                 FILE* ofPTR_2,
-                 FILE* blackrecord,
-                 Data client_data,
-                 Data transfer) {
-  const char* format = "%d%s%s%s%s%lf%lf%lf";
-  while (fscanf(ofPTR, format, &client_data.Number, client_data.Name,
-                client_data.Surname, client_data.addres, client_data.TelNumber,
-                &client_data.indebtedness, &client_data.credit_limit,
-                &client_data.cash_payments) != -1) {
+                     FILE* ofPTR_2,
+                     FILE* blackrecord,
+                     Data client_data,
+                     Data transfer) {
+    while (fscanf(ofPTR, "%d%s%s%s%s%lf%lf%lf", &client_data.Number,
+                client_data.Name, client_data.Surname, client_data.addres,
+                client_data.TelNumber, &client_data.indebtedness,
+                &client_data.credit_limit, &client_data.cash_payments) != -1) {
     while (fscanf(ofPTR_2, "%d %lf", &transfer.Number,
                   &transfer.cash_payments) != -1) {
       if (client_data.Number == transfer.Number &&
