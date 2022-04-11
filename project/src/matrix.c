@@ -121,18 +121,3 @@ Matrix* mul(const Matrix* l, const Matrix* r) {
   return new_matrix;
 }
 
-int det(const Matrix* matrix, double* val) {
-  Matrix* new_matrix = create_matrix(matrix->rows, matrix->cols);
-  *val = new_matrix->arr[0];
-  return 0;
-}
-
-Matrix* adj(const Matrix* matrix){
-  Matrix* new_matrix = create_matrix(matrix->rows, matrix->cols);
-  return new_matrix;
-}
-
-Matrix* inv(const Matrix* matrix) {
-  Matrix* new_matrix = create_matrix(matrix->rows, matrix->cols);
-  return new_matrix;
-}
