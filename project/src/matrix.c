@@ -4,9 +4,10 @@
 Matrix* create_matrix_from_file(const char* path_file) {
   FILE* fp;
   fp = fopen(path_file, "r");
-  // if (fp == NULL) {
-  //   fprintf(stderr, "Error: Cannot open file %s for reading\n", path_file);
-  // }
+  if (fp == NULL) {
+    fprintf(stderr, "Error: Cannot open file %s for reading\n", path_file);
+    return NULL;
+  }
   Matrix* matrix = malloc(1 * sizeof(Matrix));
   fscanf(fp, "%zu %zu", &matrix->rows, &matrix->cols);
   matrix->arr = malloc(matrix->rows * matrix->cols * sizeof(double));
