@@ -15,6 +15,7 @@ Matrix* create_matrix_from_file(const char* path_file) {
       fscanf(fp, "%lf", &matrix->arr[(matrix->cols) * i + j]);
     }
   }
+  fclose(fp);
   return matrix;
 }
 
