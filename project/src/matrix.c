@@ -87,26 +87,31 @@ Matrix* transp(const Matrix* matrix) {
   return new_matrix;
 }
 
-Matrix* sum(const Matrix* l, const Matrix* r) {
+static double sum_element (double a, double b) {;
+  return a + b;
+}
+
+static double sub_element (double a, double b) {
+  return a - b;
+}
+
+static Matrix* sum_or_sub (const Matrix* l, const Matrix* r, double (*operation)(double, double)) {
   if (l->rows != r->rows || l->cols != r->cols) {
     return NULL;
   }
   Matrix* new_matrix = create_matrix(l->rows, l->cols);
   for (size_t i = 0; i < ((l->rows) * (l->cols)); ++i) {
-    new_matrix->arr[i] = l->arr[i] + r->arr[i];
+    new_matrix->arr[i] = operation(l->arr[i], r->arr[i]);
   }
   return new_matrix;
 }
 
+Matrix* sum(const Matrix* l, const Matrix* r) {
+  return sum_or_sub(l, r, sum_element);
+}
+
 Matrix* sub(const Matrix* l, const Matrix* r) {
-  if (l->rows != r->rows || l->cols != r->cols) {
-    return NULL;
-  }
-  Matrix* new_matrix = create_matrix(l->rows, l->cols);
-  for (size_t i = 0; i < ((l->rows) * (l->cols)); ++i) {
-    new_matrix->arr[i] = l->arr[i] - r->arr[i];
-  }
-  return new_matrix;
+  return sum_or_sub(l, r, sub_element);
 }
 
 Matrix* mul(const Matrix* l, const Matrix* r) {

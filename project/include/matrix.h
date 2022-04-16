@@ -24,7 +24,7 @@ int set_elem(Matrix* matrix, size_t row, size_t col, double val);
 // Math operations
 Matrix* mul_scalar(const Matrix* matrix, double val);
 Matrix* transp(const Matrix* matrix);
-Matrix* sum_or_cub(double *operation(Matrix* l, const Matrix* r));
+
 Matrix* sum(const Matrix* l, const Matrix* r);
 Matrix* sub(const Matrix* l, const Matrix* r);
 Matrix* mul(const Matrix* l, const Matrix* r);
