@@ -156,13 +156,24 @@ Matrix* mul(const Matrix* l, const Matrix* r) {
   return new_matrix;
 }
 
-static Matrix* delete_string_and_line() {}
+static Matrix* delete_string_and_line(const Matrix* matrix,
+                                      size_t number_element) {
+  Matrix* result = create_matrix(matrix->rows - 1, matrix->cols - 1);
+  for (long unsigned int l = 1; l <= matrix->cols + matrix->rows; ++l) {
+    if (l - number_element % matrix->cols == 0) {
+      ++l;
+    }
+    result->array[l] = matrix->array[matrix->cols + l];
+  }
+  return result;
+}
 
 int det(const Matrix* matrix, double* val) {
   if (matrix == NULL || (matrix->cols) != (matrix->rows)) {
     return -1;
   }
 
+  double result;
   if (matrix->cols == 1) {
     *val = matrix->array[0];
   }
@@ -171,18 +182,16 @@ int det(const Matrix* matrix, double* val) {
            (matrix->array[1] * matrix->array[2]);
   }
   if (matrix->cols > 2) {
-    for (int i = 0; i < matrix->cols; i++) {
-      Matrix* minor_matrix = create_matrix(matrix->rows - 1, matrix->cols - 1);
-      minor_matrix = delete_string_and_line(matrix, i);
-
+    for (size_t i = 0; i < matrix->cols; i++) {
+      Matrix* minor_matrix = delete_string_and_line(matrix, i);
       int sign = 1;
-      for (int i = 0; i < matrix->cols; ++i) {
-        int result =+(sign * matrix->array[matrix->cols] * det(minor_matrix, val));
+      for (size_t d = 1; d <= matrix->cols; ++d) {
+        result = +(sign * matrix->array[d] * det(minor_matrix, val));
         sign *= -1;
       }
     }
+    *val = result;
   }
-  // *val = matrix->array[0] * det(matrix_new, val);
   return 0;
 }
 
@@ -192,12 +201,12 @@ int det(const Matrix* matrix, double* val) {
 // }
 // return 0;
 
-// Matrix* adj(const Matrix* matrix) {
-//   Matrix* new_matrix = create_matrix(matrix->rows, matrix->cols);
-//   return new_matrix;
-// }
+Matrix* adj(const Matrix* matrix) {
+  Matrix* new_matrix = create_matrix(matrix->rows, matrix->cols);
+  return new_matrix;
+}
 
-// Matrix* inv(const Matrix* matrix) {
-//   Matrix* new_matrix = create_matrix(matrix->rows, matrix->cols);
-//   return new_matrix;
-// }
+Matrix* inv(const Matrix* matrix) {
+  Matrix* new_matrix = create_matrix(matrix->rows, matrix->cols);
+  return new_matrix;
+}

@@ -41,6 +41,7 @@ int main(void) {
   // }
   k = det(m, n);
   free_matrix(m);
-  printf("%lf ", *n);
+  printf("%lf ",*n);
   printf("%d ", k);
+  free(n);
 }
