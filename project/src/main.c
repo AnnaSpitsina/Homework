@@ -3,12 +3,12 @@
 #include <stdlib.h>
 
 int main(void) {
-  Matrix* m;
-  int k;
-  double *n = calloc(1, sizeof(double));
+  // Matrix* m;
+  // int k;
+  // double *n = calloc(1, sizeof(double));
   // Matrix* n;
   // Matrix* k;
-  m = create_matrix_from_file("/mnt/c/Users/user/Desktop/technopark/Homework/mytest.txt");
+  // m = create_matrix_from_file("/mnt/c/Users/user/Desktop/technopark/Homework/mytest.txt");
   // n = create_matrix_from_file("/mnt/c/Users/user/Desktop/technopark/Homework/mytesttwo.txt");
   // size_t row = 1;
   // size_t col = 1;
@@ -39,9 +39,9 @@ int main(void) {
   //     printf("%lf ", k->array[(k->cols) * i + j]);
   //   }
   // }
-  k = det(m, n);
-  free_matrix(m);
-  printf("%lf ",*n);
-  printf("%d ", k);
-  free(n);
+  // k = det(m, n);
+  // free_matrix(m);
+  // printf("%lf ",*n);
+  // printf("%d ", k);
+  // free(n);
 }
